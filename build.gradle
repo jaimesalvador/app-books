@@ -23,20 +23,29 @@ dependencies {
     //implementation 'io.helidon.microprofile.bundles:helidon-microprofile'
     implementation 'io.helidon.microprofile.server:helidon-microprofile-server'
     implementation 'io.helidon.microprofile.rest-client:helidon-microprofile-rest-client'
-
-    implementation 'io.helidon.dbclient:helidon-dbclient'
-    implementation 'io.helidon.dbclient:helidon-dbclient-jdbc'
-
     implementation 'org.glassfish.jersey.media:jersey-media-json-binding'
 
+    //--tracing
+//    implementation 'io.helidon.microprofile.tracing:helidon-microprofile-tracing'
+//    implementation 'io.helidon.tracing:helidon-tracing-jaeger'
+//    //implementation 'io.helidon.tracing:helidon-tracing-zipkin'
+
+    //--health
+    implementation 'io.helidon.microprofile.health:helidon-microprofile-health'
+    implementation 'io.helidon.health:helidon-health-checks'
+
+    //--db
+    implementation 'io.helidon.dbclient:helidon-dbclient'
+    implementation 'io.helidon.dbclient:helidon-dbclient-jdbc'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.5.1'
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+
+    //--test
     testImplementation 'io.helidon.microprofile.tests:helidon-microprofile-tests-junit5'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.5.1'
-    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
-
-    // https://mvnrepository.com/artifact/org.flywaydb/flyway-core
+    //--migracion DB
     implementation group: 'org.flywaydb', name: 'flyway-core', version: '9.11.0'
 }
 
